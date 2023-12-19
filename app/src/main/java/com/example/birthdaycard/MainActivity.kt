@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -39,17 +38,20 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GreetingText(to: String, from: String, modifier: Modifier = Modifier) {
+    // Surround with column to prevent overlapping
     Column(
         verticalArrangement = Arrangement.Center,
         modifier = modifier.padding(8.dp) // Good practice: padding in increments of 4
     ) {
-        Text( // Message
+        // Message
+        Text(
             text = "Happy Birthday $to!",
             fontSize = 100.sp,
             lineHeight = 116.sp,
             textAlign = TextAlign.Center
         )
-        Text( // Signature
+        // Signature
+        Text(
             text = "From $from",
             fontSize = 36.sp,
             modifier = Modifier
