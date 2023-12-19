@@ -3,6 +3,8 @@ package com.example.birthdaycard
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -30,16 +32,18 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
-    Text(
-        text = message,
-        fontSize = 100.sp,
-        lineHeight = 120.sp
-    )
-    Text(
-        text = "From $from",
-        fontSize = 36.sp
-    )
+fun GreetingText(to: String, from: String, modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        Text(
+            text = "Happy Birthday $to!",
+            fontSize = 100.sp,
+            lineHeight = 116.sp
+        )
+        Text(
+            text = "From $from",
+            fontSize = 36.sp
+        )
+    }
 }
 
 @Preview(
@@ -49,6 +53,6 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
 @Composable
 fun BirthdayCardPreview() {
     BirthdayCardTheme {
-        GreetingText(message = "Happy Birthday Bob!", from = "Mateusz")
+        GreetingText(to = "Bob", from = "Mateusz")
     }
 }
