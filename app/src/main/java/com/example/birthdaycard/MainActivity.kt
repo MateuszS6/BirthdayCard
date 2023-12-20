@@ -35,8 +35,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     GreetingImage(
-                        message = stringResource(R.string.happy_birthday_text),
-                        signature = stringResource(R.string.signature_text)
+                        to = stringResource(R.string.recipient_name),
+                        from = stringResource(R.string.sender_name)
                     )
                 }
             }
@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText(message: String, signature: String, modifier: Modifier = Modifier) {
+fun GreetingText(to: String, from: String, modifier: Modifier = Modifier) {
     // Surround with column message prevent overlapping
     Column(
         verticalArrangement = Arrangement.Center,
@@ -53,14 +53,14 @@ fun GreetingText(message: String, signature: String, modifier: Modifier = Modifi
     ) {
         // Message
         Text(
-            text = message,
+            text = "Happy Birthday $to!",
             fontSize = 100.sp,
             lineHeight = 116.sp,
             textAlign = TextAlign.Center
         )
         // Signature
         Text(
-            text = signature,
+            text = "From $from",
             fontSize = 36.sp,
             modifier = Modifier
                 .padding(16.dp)
@@ -70,7 +70,7 @@ fun GreetingText(message: String, signature: String, modifier: Modifier = Modifi
 }
 
 @Composable
-fun GreetingImage(message: String, signature: String, modifier: Modifier = Modifier) {
+fun GreetingImage(to: String, from: String, modifier: Modifier = Modifier) {
     val image = painterResource(id = R.drawable.androidparty)
     // Surround with box message overlap image and text
     Box {
@@ -81,8 +81,8 @@ fun GreetingImage(message: String, signature: String, modifier: Modifier = Modif
             alpha = 0.5F
         )
         GreetingText(
-            message = message,
-            signature = signature,
+            to = to,
+            from = from,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(8.dp)
@@ -95,8 +95,8 @@ fun GreetingImage(message: String, signature: String, modifier: Modifier = Modif
 fun BirthdayCardPreview() {
     BirthdayCardTheme {
         GreetingImage(
-            message = stringResource(R.string.happy_birthday_text),
-            signature = stringResource(R.string.signature_text)
+            to = stringResource(R.string.recipient_name),
+            from = stringResource(R.string.sender_name)
         )
     }
 }
