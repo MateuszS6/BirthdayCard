@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -33,7 +34,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingImage(to = "Bob", from = "Mateusz")
+                    GreetingImage(
+                        message = stringResource(R.string.happy_birthday_text),
+                        signature = stringResource(R.string.signature_text)
+                    )
                 }
             }
         }
@@ -41,22 +45,22 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText(to: String, from: String, modifier: Modifier = Modifier) {
-    // Surround with column to prevent overlapping
+fun GreetingText(message: String, signature: String, modifier: Modifier = Modifier) {
+    // Surround with column message prevent overlapping
     Column(
         verticalArrangement = Arrangement.Center,
         modifier = modifier.padding(8.dp) // Good practice: padding in increments of 4
     ) {
         // Message
         Text(
-            text = "Happy Birthday $to!",
+            text = message,
             fontSize = 100.sp,
             lineHeight = 116.sp,
             textAlign = TextAlign.Center
         )
         // Signature
         Text(
-            text = "From $from",
+            text = signature,
             fontSize = 36.sp,
             modifier = Modifier
                 .padding(16.dp)
@@ -66,18 +70,19 @@ fun GreetingText(to: String, from: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun GreetingImage(to: String, from: String, modifier: Modifier = Modifier) {
+fun GreetingImage(message: String, signature: String, modifier: Modifier = Modifier) {
     val image = painterResource(id = R.drawable.androidparty)
-    // Surround with box to overlap image and text
+    // Surround with box message overlap image and text
     Box {
         Image(
             painter = image,
             contentDescription = null,
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.Crop,
+            alpha = 0.5F
         )
         GreetingText(
-            to = to,
-            from = from,
+            message = message,
+            signature = signature,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(8.dp)
@@ -85,13 +90,13 @@ fun GreetingImage(to: String, from: String, modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(
-    showBackground = true,
-//    showSystemUi = true
-)
+@Preview(showBackground = true)
 @Composable
 fun BirthdayCardPreview() {
     BirthdayCardTheme {
-        GreetingImage(to = "Bob", from = "Mateusz")
+        GreetingImage(
+            message = stringResource(R.string.happy_birthday_text),
+            signature = stringResource(R.string.signature_text)
+        )
     }
 }
