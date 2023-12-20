@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -31,7 +32,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(to = "Bob", from = "Mateusz")
+                    GreetingImage(to = "Bob", from = "Mateusz")
                 }
             }
         }
@@ -64,12 +65,22 @@ fun GreetingText(to: String, from: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
+fun GreetingImage(to: String, from: String, modifier: Modifier = Modifier) {
     val image = painterResource(id = R.drawable.androidparty)
-    Image(
-        painter = image,
-        contentDescription = null
-    )
+    // Surround with box to overlap image and text
+    Box {
+        Image(
+            painter = image,
+            contentDescription = null
+        )
+        GreetingText(
+            to = to,
+            from = from,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp)
+        )
+    }
 }
 
 @Preview(
@@ -79,6 +90,6 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
 @Composable
 fun BirthdayCardPreview() {
     BirthdayCardTheme {
-        GreetingText(to = "Bob", from = "Mateusz")
+        GreetingImage(to = "Bob", from = "Mateusz")
     }
 }
