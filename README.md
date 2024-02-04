@@ -5,8 +5,8 @@ A birthday card app built for my [Android Basics with Compose][course] course, d
 ## Learning Outcomes
 
 * Applied newly-learnt [Kotlin fundamentals][practice]
-* Learnt how to use Jetpack Compose in Android Studio
-* Displayed the app on an Android device
+* Utilise Jetpack Compose in Android Studio
+* Display an app on an Android device
 
 [course]: https://developer.android.com/courses/android-basics-compose/course
 [practice]: https://github.com/mateuszs6/KotlinPractice.git
