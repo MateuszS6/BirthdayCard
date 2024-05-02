@@ -2,6 +2,14 @@
 
 This repository hosts the Birthday Card App, a simple yet elegant Android application developed as part of my coursework for the [Android Basics with Compose](https://developer.android.com/courses/android-basics-compose/course). The app displays a customisable birthday greeting, demonstrating the basic yet powerful features of Jetpack Compose in Android development.
 
+## Coursework Details
+
+The project is a personal Portfolio Development Option for:
+
+- **Course**: IN2015 Professional Development in IT
+- **Institution**: City, University of London
+- **Term**: Winter 2023
+
 ## Project Overview
 
 The Birthday Card App serves as a practical application of the Kotlin programming skills and Jetpack Compose techniques I learned during the course. It features a user-friendly interface that showcases a personalised birthday message. The primary goal of this project was to create a visually appealing application while practicing fundamental development skills.
