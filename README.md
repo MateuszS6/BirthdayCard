@@ -7,8 +7,9 @@ This repository hosts the Birthday Card App, a simple yet elegant Android applic
 The Birthday Card App serves as a practical application of the Kotlin programming skills and Jetpack Compose techniques I learned during the course. It features a user-friendly interface that showcases a personalised birthday message. The primary goal of this project was to create a visually appealing application while practicing fundamental development skills.
 
 ## App Screenshot
-
-![birthday-card-app](birthday-card-app.jpg)
+<p align="center">
+  <img src="birthday-card-app.jpg" alt="birthday-card-app" width="300"/>
+</p>
 
 This is a screenshot of the Birthday Card App, showcasing the default view of the birthday greeting interface. This image provides a visual representation of the app’s user interface developed using Jetpack Compose.
 
